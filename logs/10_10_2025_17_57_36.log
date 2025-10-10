@@ -1,0 +1,178 @@
+[ 2025-10-10 17:57:39,333 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 17:57:39,333 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 17:57:45,391 ] 59 root - INFO - value:   Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0  Female     Yes          1  Graduate           Yes         500000.0                0.0      1000.0              90.0             0.0         Rural
+[ 2025-10-10 17:57:45,665 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 17:57:45,684 ] 32 root - INFO - data_scaled,[[ 0.28816322 74.91646918 -0.73981956 10.19380407 -3.82732381 -2.46478224
+   2.69538884  0.          0.          2.09388951  2.43379786  0.
+   0.          2.609873    2.18451121  0.          0.        ]]
+[ 2025-10-10 17:57:45,685 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 17:57:45,686 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 17:57:45,687 ] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 68, in predict_datapoint
+    Loan_Status=pred_df[1]
+                ~~~~~~~^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+[ 2025-10-10 17:57:45,718 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:57:45] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+[ 2025-10-10 17:58:24,176 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0   Male     Yes          1  Graduate            No          20000.0                0.0       100.0             180.0             1.0     Semiurban
+[ 2025-10-10 17:58:24,204 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 17:58:24,221 ] 32 root - INFO - data_scaled,[[ 0.28816322  2.2080868  -0.73981956 -0.52204362 -2.44967563  0.44013969
+   0.          2.69538884  0.          2.09388951  2.43379786  0.
+   2.609873    0.          0.          2.06330633  0.        ]]
+[ 2025-10-10 17:58:24,222 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 17:58:24,222 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 17:58:24,223 ] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 68, in predict_datapoint
+    Loan_Status=pred_df[1]
+                ~~~~~~~^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+[ 2025-10-10 17:58:24,227 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:58:24] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+[ 2025-10-10 17:58:29,491 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:58:29] "GET / HTTP/1.1" 200 -
+[ 2025-10-10 17:59:06,319 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0   Male     Yes          0  Graduate           Yes          50000.0              785.0       500.0             180.0             1.0         Urban
+[ 2025-10-10 17:59:06,343 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 17:59:06,357 ] 32 root - INFO - data_scaled,[[-0.7276849   6.7523607  -0.33341852  4.24055535 -2.44967563  0.44013969
+   0.          2.69538884  0.          2.09388951  2.43379786  0.
+   0.          2.609873    0.          0.          2.13671377]]
+[ 2025-10-10 17:59:06,358 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 17:59:06,358 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 17:59:06,359 ] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 68, in predict_datapoint
+    Loan_Status=pred_df[1]
+                ~~~~~~~^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+[ 2025-10-10 17:59:06,363 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:59:06] "[35m[1mPOST / HTTP/1.1[0m" 500 -

@@ -1,1 +1,24 @@
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Node.js modules
+/node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore build files
+/dist/
+/build/
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
+# Ignore sensitive data files
+.env
+
+# Ignore compiled files
+*.class
+*.exe
 

@@ -1,0 +1,18 @@
+[ 2025-10-10 08:51:58,734 ] 40 root - INFO - Entered the data ingestion method or component
+[ 2025-10-10 08:51:58,740 ] 43 root - INFO - Read the dataset as dataframe 
+[ 2025-10-10 08:51:58,746 ] 50 root - INFO - train test split initiated
+[ 2025-10-10 08:51:58,752 ] 57 root - INFO - ingestion of the data is complted 
+[ 2025-10-10 08:51:58,756 ] 75 root - INFO - Train and test data loaded successfully.
+[ 2025-10-10 08:51:58,756 ] 76 root - INFO - Obtaining preprocessing object.
+[ 2025-10-10 08:51:58,756 ] 57 root - INFO - Numeric pipeline created for: ['Dependents', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History']
+[ 2025-10-10 08:51:58,756 ] 58 root - INFO - Categorical pipeline created for: ['Gender', 'Married', 'Education', 'Self_Employed', 'Property_Area']
+[ 2025-10-10 08:51:58,757 ] 90 root - INFO - Applying preprocessing to training and test data.
+[ 2025-10-10 08:51:58,770 ] 95 root - INFO - Saved preprocessing object.
+[ 2025-10-10 08:51:58,770 ] 102 root - INFO - Saved preprocessing object.
+[ 2025-10-10 08:51:58,774 ] 36 root - INFO - Split training and test input data
+[ 2025-10-10 08:52:02,445 ] 91 root - INFO - KNeighborsClassifier accuracy: 0.7583
+[ 2025-10-10 08:52:03,682 ] 91 root - INFO - RandomForestClassifier accuracy: 0.7833
+[ 2025-10-10 08:52:03,690 ] 91 root - INFO - SVC accuracy: 0.8208
+[ 2025-10-10 08:52:03,698 ] 91 root - INFO - LogisticRegression accuracy: 0.8167
+[ 2025-10-10 08:52:03,698 ] 80 root - INFO - Best found model on both training and testing dataset
+[ 2025-10-10 08:52:03,698 ] 81 root - INFO - Best model: SVC with score: 0.8208333333333333

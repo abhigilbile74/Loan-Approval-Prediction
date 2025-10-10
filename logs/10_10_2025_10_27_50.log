@@ -1,0 +1,11 @@
+[ 2025-10-10 10:27:55,152 ] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[ 2025-10-10 10:27:55,153 ] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[ 2025-10-10 10:27:56,167 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 10:27:56,167 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 10:28:09,284 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 10:28:09] "GET / HTTP/1.1" 200 -
+[ 2025-10-10 10:28:50,765 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ...  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History  Property_Area
+0   Male     Yes          0  Graduate            No  ...                0.0       100.0             180.0             1.0          Urban
+
+[1 rows x 11 columns]
+[ 2025-10-10 10:28:51,310 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 10:28:51] "POST / HTTP/1.1" 200 -

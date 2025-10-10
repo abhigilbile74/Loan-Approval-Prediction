@@ -1,0 +1,27 @@
+[ 2025-10-10 18:08:25,144 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 18:08:25,144 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 18:08:41,235 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 18:08:41] "GET / HTTP/1.1" 200 -
+[ 2025-10-10 18:09:31,704 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0   Male     Yes          0  Graduate           Yes          65351.0                1.0      5513.0             120.0             1.0         Urban
+[ 2025-10-10 18:09:32,001 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 18:09:32,018 ] 32 root - INFO - data_scaled,[[-0.7276849   9.07766566 -0.73930185 63.92782698 -3.36810775  0.44013969
+   0.          2.69538884  0.          2.09388951  2.43379786  0.
+   0.          2.609873    0.          0.          2.13671377]]
+[ 2025-10-10 18:09:32,020 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 18:09:32,020 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 18:09:32,022 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 18:09:32] "POST / HTTP/1.1" 200 -

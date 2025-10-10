@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #27ae60;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .approved {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .rejected {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .error {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Loan Approval Prediction</h1>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="married">Married</label>
+                <select name="married" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dependents">Dependents</label>
+                <select name="dependents" required>
+                    <option value="">Select</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education</label>
+                <select name="education" required>
+                    <option value="">Select</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Not Graduate">Not Graduate</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="selfEmployed">Self Employed</label>
+                <select name="selfEmployed" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="applicantIncome">Applicant Income (₹)</label>
+                <input type="number" name="applicantIncome" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="coapplicantIncome">Co-applicant Income (₹)</label>
+                <input type="number" name="coapplicantIncome" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="loanAmount">Loan Amount (₹)</label>
+                <input type="number" name="loanAmount" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="loanAmountTerm">Loan Term (months)</label>
+                <input type="number" name="loanAmountTerm" required min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="creditHistory">Credit History</label>
+                <select name="creditHistory" required>
+                    <option value="">Select</option>
+                    <option value="1">Good</option>
+                    <option value="0">Poor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="propertyArea">Property Area</label>
+                <select name="propertyArea" required>
+                    <option value="">Select</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Semiurban">Semiurban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict</button>
+             
+        </form>
+        {% if results %}
+            <div class="result {{ 'approved' if results == 'Y' else 'rejected' }}">
+                {% if results == 'Y' %}
+                    🎉 <strong>Approved!</strong> Your loan application is likely to be approved.
+                    <br>
+                    ✅ Confidence: {{ confidence }}%
+                {% else %}
+                    ❌ <strong>Rejected</strong> Unfortunately, your loan application may not be approved.
+                    <br>
+                    ❗ Confidence: {{ confidence }}%
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

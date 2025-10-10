@@ -1,0 +1,9 @@
+[ 2025-10-10 08:59:07,915 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 08:59:07,916 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 08:59:42,900 ] 47 root - INFO - value:   Gender Married Dependents     Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0  Female      No          1  Not Graduate           Yes              0.0                0.0         0.0               0.0             0.0         Rural
+[ 2025-10-10 08:59:43,109 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 08:59:43] "POST / HTTP/1.1" 200 -
+[ 2025-10-10 09:41:30,713 ] 47 root - INFO - value:   Gender Married Dependents     Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0  Female      No          1  Not Graduate           Yes              0.0                0.0         0.0               0.0             0.0         Rural
+[ 2025-10-10 09:41:30,801 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 09:41:30] "POST / HTTP/1.1" 200 -

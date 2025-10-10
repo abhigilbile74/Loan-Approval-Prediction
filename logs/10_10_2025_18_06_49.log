@@ -1,0 +1,45 @@
+[ 2025-10-10 18:06:52,093 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 18:06:52,094 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 18:07:11,862 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 18:07:11] "GET / HTTP/1.1" 200 -
+[ 2025-10-10 18:07:39,727 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0   Male     Yes          1  Graduate           Yes           5000.0             5152.0       201.0              13.0             0.0         Urban
+[ 2025-10-10 18:07:40,027 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 18:07:40,040 ] 32 root - INFO - data_scaled,[[ 0.28816322 -0.06405014  1.9274138   0.68051262 -5.00597836 -2.46478224
+   0.          2.69538884  0.          2.09388951  2.43379786  0.
+   0.          2.609873    0.          0.          2.13671377]]
+[ 2025-10-10 18:07:40,041 ] 34 root - INFO - preds.['N']
+[ 2025-10-10 18:07:40,042 ] 63 root - INFO - value:['N']
+[ 2025-10-10 18:07:40,042 ] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 68, in predict_datapoint
+    Loan_Status=results[1],
+                ~~~~~~~^^^
+IndexError: index 1 is out of bounds for axis 0 with size 1
+[ 2025-10-10 18:07:40,046 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 18:07:40] "[35m[1mPOST / HTTP/1.1[0m" 500 -

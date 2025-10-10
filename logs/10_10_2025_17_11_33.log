@@ -1,0 +1,162 @@
+[ 2025-10-10 17:11:40,353 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 17:11:40,354 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 17:11:42,048 ] 875 app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 17, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Abhishek\Desktop\ML-Project\templates\home.html", line 420, in top-level template code
+    {% if results[0] %}
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[ 2025-10-10 17:11:42,071 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:11:42] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[ 2025-10-10 17:11:43,200 ] 875 app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 17, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Abhishek\Desktop\ML-Project\templates\home.html", line 420, in top-level template code
+    {% if results[0] %}
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[ 2025-10-10 17:11:43,209 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:11:43] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[ 2025-10-10 17:11:52,788 ] 59 root - INFO - value:  Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0   Male     Yes          1  Graduate            No          20000.0                0.0       100.0             180.0             1.0     Semiurban
+[ 2025-10-10 17:11:53,041 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 17:11:53,054 ] 32 root - INFO - data_scaled,[[ 0.28816322  2.2080868  -0.73981956 -0.52204362 -2.44967563  0.44013969
+   0.          2.69538884  0.          2.09388951  2.43379786  0.
+   2.609873    0.          0.          2.06330633  0.        ]]
+[ 2025-10-10 17:11:53,055 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 17:11:53,056 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 17:11:53,057 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:11:53] "POST / HTTP/1.1" 200 -
+[ 2025-10-10 17:12:17,835 ] 875 app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 17, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Abhishek\Desktop\ML-Project\templates\home.html", line 420, in top-level template code
+    {% if results[0] %}
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[ 2025-10-10 17:12:17,839 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:12:17] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[ 2025-10-10 17:12:19,566 ] 875 app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 17, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Abhishek\Desktop\ML-Project\templates\home.html", line 420, in top-level template code
+    {% if results[0] %}
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[ 2025-10-10 17:12:19,570 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:12:19] "[35m[1mGET / HTTP/1.1[0m" 500 -

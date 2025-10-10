@@ -1,0 +1,8 @@
+pandas
+numpy<2
+scikit-learn
+matplotlib
+seaborn
+dill
+flask
+flask  # For deployment (if using Flask)

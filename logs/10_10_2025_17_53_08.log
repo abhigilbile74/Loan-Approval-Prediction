@@ -1,0 +1,44 @@
+[ 2025-10-10 17:53:13,221 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2025-10-10 17:53:13,223 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-10-10 17:53:21,662 ] 59 root - INFO - value:   Gender Married Dependents Education Self_Employed  ApplicantIncome  CoapplicantIncome  LoanAmount  Loan_Amount_Term  Credit_History Property_Area
+0  Female     Yes          1  Graduate           Yes         500000.0                0.0      1000.0              90.0             0.0         Rural
+[ 2025-10-10 17:53:21,916 ] 30 root - INFO - prprocessor,ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer', SimpleImputer()),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Dependents', 'ApplicantIncome',
+                                  'CoapplicantIncome', 'LoanAmount',
+                                  'Loan_Amount_Term', 'Credit_History']),
+                                ('cat_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore')),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Gender', 'Married', 'Education',
+                                  'Self_Employed', 'Property_Area'])])
+[ 2025-10-10 17:53:21,941 ] 32 root - INFO - data_scaled,[[ 0.28816322 74.91646918 -0.73981956 10.19380407 -3.82732381 -2.46478224
+   2.69538884  0.          0.          2.09388951  2.43379786  0.
+   0.          2.609873    2.18451121  0.          0.        ]]
+[ 2025-10-10 17:53:21,942 ] 34 root - INFO - preds.['Y']
+[ 2025-10-10 17:53:21,942 ] 63 root - INFO - value:['Y']
+[ 2025-10-10 17:53:21,943 ] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhishek\Desktop\ML-Project\app.py", line 66, in predict_datapoint
+    return render_template('home.html', **results)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: flask.templating.render_template() argument after ** must be a mapping, not numpy.ndarray
+[ 2025-10-10 17:53:21,960 ] 97 werkzeug - INFO - 127.0.0.1 - - [10/Oct/2025 17:53:21] "[35m[1mPOST / HTTP/1.1[0m" 500 -
